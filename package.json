@@ -1,0 +1,27 @@
+{
+  "name": "mern_e-commerce_app",
+  "version": "1.0.0",
+  "description": "First Payment Gateway Intregation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raw-Coder-Rahul/e-Commerce_withPayment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Raw-Coder-Rahul/e-Commerce_withPayment/issues"
+  },
+  "homepage": "https://github.com/Raw-Coder-Rahul/e-Commerce_withPayment#readme",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
