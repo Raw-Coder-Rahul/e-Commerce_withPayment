@@ -87,11 +87,11 @@ const orderSchema = new mongoose.Schema(
         required: true,
         default: 0
     },
-    // orderStatus: {
-    //   type: String,
-    //   required: true,
-    //   default: "Processing"
-    // },
+    orderStatus: {
+      type: String,
+      required: true,
+      default: "Processing"
+    },
     totalPrice: {
       type: Number,
       required: true,

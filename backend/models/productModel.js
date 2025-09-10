@@ -40,7 +40,7 @@ const productSchema = new mongoose.Schema({
         required: [true, "Please enter product stock"],
         max: [10000, "Stock cannot exceed 10000"],
         min: [0, "Stock cannot be negative"],
-        default: 0,
+        default: 1,
     },
     numOfReviews: {
         type: Number,
