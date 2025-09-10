@@ -1,13 +1,30 @@
 import express from 'express';
-import { createProducts, deleteProduct, getAllProducts, getSingleProduct, updateProduct} from '../controller/productController.js';
+import { createProducts, createReviewForProduct, deleteProduct, deleteReview, getAdminProducts, getAllProducts, getProductReviews, getSingleProduct, updateProduct} from '../controller/productController.js';
 import { roleBasedAccess, verifyUserAuth } from '../middleware/userAuth.js';
 const router = express.Router();
 
+// Routes for Products
 router.route('/products')
-  .get(verifyUserAuth, getAllProducts)
+  .get(getAllProducts);
+
+router.route('/admin/products')
+  .get(verifyUserAuth, roleBasedAccess("admin"), getAdminProducts);
+
+router.route('/admin/products/create')
   .post(verifyUserAuth, roleBasedAccess("admin"), createProducts);
-router.route('/products/:id')
+
+router.route('/admin/products/:id')
   .put(verifyUserAuth,  roleBasedAccess("admin"), updateProduct)
-  .delete(verifyUserAuth,  roleBasedAccess("admin"), deleteProduct)
-  .get(verifyUserAuth, getSingleProduct);
+  .delete(verifyUserAuth,  roleBasedAccess("admin"), deleteProduct);
+
+router.route('/products/:id')
+  .get(getSingleProduct);
+
+router.route('/review')
+  .put(verifyUserAuth, createReviewForProduct);
+
+router.route('/reviews')
+  .get(getProductReviews)
+  .delete(verifyUserAuth, deleteReview);
+
 export default router;

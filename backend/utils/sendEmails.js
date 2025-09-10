@@ -4,7 +4,7 @@ export const sendEmail = async(options) => {
         service: process.env.SMTP_SERVICE,
         auth:{
             user: process.env.SMTP_MAIL,
-            pass:""
+            pass: process.env.SMTP_PASSWORD
         }
     })
     const mailOptions = {
@@ -13,4 +13,5 @@ export const sendEmail = async(options) => {
         subject: options.subject,
         text: options.message
     }
+    await transporter.sendMail(mailOptions);
 }
